@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from html2image import Html2Image
 hti = Html2Image()
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 def html_to_image(request):
     body = request.data
     

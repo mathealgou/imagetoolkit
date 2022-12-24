@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from imagetoolkit.views.html_to_image import html_to_image
+from imagetoolkit.views.process import process
 
 router = routers.DefaultRouter()
 
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api/', include(router.urls)),
     path('api/html_to_image/', html_to_image, name='html_to_image'),
+    path('api/process/', process, name='process'),
 ]
