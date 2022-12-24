@@ -11,9 +11,9 @@ def html_to_image(request):
     body = request.data
     
     hti.screenshot(html_str=body["html"],
-                   css_str=body["css"], save_as=body["filename"], size=(body["width"], body["height"]))
+                   css_str=body["css"], save_as="file.png", size=(body["width"], body["height"]))
     
-    file = open(body["filename"], 'rb')
+    file = open("file.png", 'rb')
     
     response = HttpResponse(file, content_type='image/png')
     response['Content-Disposition'] = 'attachment; filename=NameOfFile'

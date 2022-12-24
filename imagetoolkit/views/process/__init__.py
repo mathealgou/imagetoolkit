@@ -6,6 +6,7 @@ from rest_framework.parsers import FileUploadParser, MultiPartParser, FormParser
 import base64
 from .process import process_image
 from PIL import Image
+import os
 
 from html2image import Html2Image
 hti = Html2Image()
@@ -25,8 +26,12 @@ def process(request):
     image.save("file.png")
     
     file = open("file.png", 'rb')
-    
+
+
+
     # Return the processed file
     response = HttpResponse(file, content_type='image/png')
     response['Content-Disposition'] = 'attachment; filename=NameOfFile'
+    file.close()    
+    os.remove("file.png")
     return response
