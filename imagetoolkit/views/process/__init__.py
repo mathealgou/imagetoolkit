@@ -33,5 +33,5 @@ def process(request):
     response = HttpResponse(file, content_type='image/png')
     response['Content-Disposition'] = 'attachment; filename=NameOfFile'
     file.close()    
-    os.remove("file.png")
+    # os.remove("file.png")
     return response
