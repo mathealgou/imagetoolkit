@@ -7,7 +7,7 @@ def vignette(image, process):
     
     height, width = image.shape[:2]
     
-    level = 4
+    level = process.get("level") or 1
     
     x_resultant_kernel = cv2.getGaussianKernel(width, width/level)
     y_resultant_kernel = cv2.getGaussianKernel(height, height/level)
